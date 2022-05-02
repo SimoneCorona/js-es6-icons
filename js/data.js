@@ -1,4 +1,4 @@
-[
+const arrayItems = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,19 @@
 		color: 'blue'
 	}
 ];
+
+// Milestone 1
+// Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
+// Milestone 2
+// Ciascuna icona ha una proprietà "color": utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
+const item = document.querySelector(".row");
+
+arrayItems.forEach(element => {
+	item.innerHTML +=  `<div class="item_wrapper">
+							<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>  
+							<p>${(element.name)}</p>
+						</div>`;
+}); 
+
+// BONUS
+// Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
