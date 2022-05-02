@@ -128,3 +128,52 @@ arrayItems.forEach(element => {
 
 // BONUS
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
+const typeAnimal = arrayItems.filter((element) => {return element.type === 'animal'})
+console.log(typeAnimal);
+
+const typeVegetable = arrayItems.filter((element) => {return element.type === 'vegetable'})
+console.log(typeVegetable);
+
+const typeUser = arrayItems.filter((element) => {return element.type === 'user'})
+console.log(typeUser);
+
+
+const selectTypeitem = document.getElementById('selectorItem').addEventListener('change', function() {
+	console.log(this.value);
+	
+	if (this.value === 'animal') {
+		item.innerHTML = " ";
+		typeAnimal.forEach(element => {
+			item.innerHTML +=  `<div class="item_wrapper">
+									<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>  
+									<p>${(element.name)}</p>
+							   </div>`; 	
+						   }); 
+
+    } else if (this.value === 'vegetable') {
+		item.innerHTML = " ";
+		typeVegetable.forEach(element => {
+			item.innerHTML +=  `<div class="item_wrapper">
+									<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>  
+									<p>${(element.name)}</p>
+						   		</div>`; 	
+		});
+
+	} else if (this.value === 'user') {
+		item.innerHTML = " ";
+		typeUser.forEach(element => {
+			item.innerHTML +=  `<div class="item_wrapper">
+									<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>  
+									<p>${(element.name)}</p>
+							   </div>`; 	
+						   });
+
+	} else (this.value === 'All') 
+		arrayItems.forEach(element => {
+		item.innerHTML = " ";
+		item.innerHTML +=  `<div class="item_wrapper">
+								<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>  
+								<p>${(element.name)}</p>
+							</div>`;
+		});
+})
